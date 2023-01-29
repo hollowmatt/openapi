@@ -155,3 +155,29 @@ paths:
                   type: string
                   pattern: '[a-zA-Z-,0-9]{36}'
                   example: f7f680a8-d111-421f-b6b3-493ebf905078
+  /tokens:
+    post:
+      description: Create a token
+      requestBody:
+        content:
+          application/json:
+            schema: 
+              type: object
+              properties:
+                username: 
+                  type: string
+                  example: daywalker
+                password:
+                  type: string
+                  format: password
+                  example: Wanderlust!1999
+      responses:
+        '201':
+          description: Succesful creation of a token
+          content:
+            application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
