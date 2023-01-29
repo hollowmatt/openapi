@@ -39,6 +39,8 @@ paths:
                       nullable: true
     post:
       description: Post a review
+      security:
+        - MyUserToken: []
       requestBody:
         content:
           application/json:
@@ -182,3 +184,9 @@ paths:
                   token:
                     type: string
                     example: Es2JxqJVKZ
+components:
+  securitySchemes:
+    MyUserToken:
+      type: apiKey
+      in: header
+      name: Authorization
