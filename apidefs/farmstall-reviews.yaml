@@ -15,14 +15,29 @@ info:
     to the 'Authorization' header.
 
     To get a **MyUserToken**:
-    1. Create a **User** with [POST /users](#Users/post users)
+    1. Create a **User** with [POST /users](#Users/post_users)
     1. Get a **MyUserToken** by calling [POST /tokens](#Users/post_tokens)
 
     # Reviews
     Reviews are the heart of this API. <br/>
     Registered **Users** and anonymous users can both write reviews based on 
     their experience at Farm stalls.
-    
+
+    Each review comes with a rating of between one and five stars inclusive.
+
+    - One star being the worst experience
+    - Five stars being the best
+
+    ### Example Reviews
+    "A wonderful time!" &mdash; Bob McNally
+    ![5 Stars](https://farmstall.designapis.com/img/rating-5.png)
+
+    "An awful place" &mdash; _Anonymous_
+    ![1 star](https://farmstall.designapis.com/img/rating-1.png)
+
+    "A totally average place" &mdash Jane Fair
+    ![3 stars](https://farmstall.designapis.com/img/rating-3.png)
+
   contact:
     name: Joseph Blowhard
     email: joeblow@example.com
@@ -33,11 +48,20 @@ info:
 externalDocs:
   url: https://farmstall.designapis.com
   description: Hosted docs
+tags:
+  - name: Reviews
+    description: Reviews of your favourite/worst farm stalls.
+
+  - name: Users
+    description: Users and authentication
+
 servers:
 - url: https://farmstall.designapis.com/v1
 paths: 
   /reviews:
     get:
+      tags:
+        - Reviews
       description: Get reviews
       parameters:
       - name: maxRating
@@ -69,6 +93,8 @@ paths:
                       pattern: '^[0-9a-fA-F\-]{36}$'
                       nullable: true
     post:
+      tags:
+        - Reviews
       description: Post a review
       security:
         - MyUserToken: []
@@ -113,6 +139,8 @@ paths:
                     example: f7f680a8-d111-421f-b6b3-493ebf905078
   /reviews/{reviewId}:
     get:
+      tags: 
+        - Reviews
       description: Get a single review by id
       parameters:
       - name: reviewId
@@ -152,6 +180,8 @@ paths:
                     example: 469240a9-8ef9-4a48-ae6e-65d29a01a9d0
   /users:
     post:
+      tags: 
+        - Users
       description: Create a user
       requestBody:
         content:
@@ -190,6 +220,8 @@ paths:
                     example: 9ed0e86c-f798-413e-bddc-65ffad86779a
   /tokens:
     post:
+      tags:
+        - Users
       description: Create a token
       requestBody:
         content:
