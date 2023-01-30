@@ -2,6 +2,30 @@ openapi: 3.0.3
 info:
   title: Farmstall API
   version: v1
+  description: |-
+    
+    An API for writing reviews about your favourite (or worst) farm stalls.
+
+    ![Picture of Produce](https://farmstall.designapis.com/img/produce-banner.jpg)
+
+    ---
+
+    # Auth
+    To create **Reviews** without being _anonymous_, you need to add a **MyUserToken** 
+    to the 'Authorization' header.
+
+    To get a **MyUserToken**:
+    1. Create a **User** with [Post /users](#Users/post users)
+  contact:
+    name: Joseph Blowhard
+    email: joeblow@example.com
+    url: https://farmstall.designapis.com
+  license:
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+    name: Apache 2.0
+externalDocs:
+  url: https://farmstall.designapis.com
+  description: Hosted docs
 servers:
 - url: https://farmstall.designapis.com/v1
 paths: 
