@@ -15,7 +15,14 @@ info:
     to the 'Authorization' header.
 
     To get a **MyUserToken**:
-    1. Create a **User** with [Post /users](#Users/post users)
+    1. Create a **User** with [POST /users](#Users/post users)
+    1. Get a **MyUserToken** by calling [POST /tokens](#Users/post_tokens)
+
+    # Reviews
+    Reviews are the heart of this API. <br/>
+    Registered **Users** and anonymous users can both write reviews based on 
+    their experience at Farm stalls.
+    
   contact:
     name: Joseph Blowhard
     email: joeblow@example.com
